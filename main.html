@@ -165,8 +165,10 @@
 						<header>Stromverbrauch</header>
 						<div data-type="chart" data-height="85%" data-device='["SMLesekopf"]'
 							data-logdevice='["FileLog_SMLesekopf"]' data-columnspec='["4:DWS7612_power"]'
+							data-get="DWS7612_power"
+							data-uaxis='primary'
 							data-style='["ftui l6fill"]' data-ptype='["lines"]' data-crosshair="true" data-yunit="W"
-							data-minvalue="auto" data-maxvalue="auto" data-minvalue="auto data-xticks="auto" data-yticks="auto"
+							data-minvalue="auto" data-maxvalue="auto" data-minvalue="auto" data-xticks="auto" data-yticks="auto"
 							data-minvalue_sec="auto" data-maxvalue_sec="auto"
 							data-nofulldays="true" data-graphsshown="true" data-prefetch="true" data-cursorgroup="1"
 							data-scrollgroup="1">
@@ -226,6 +228,7 @@
 							data-logdevice='["FileLog_Cosmo_Multi_Regler"]'
 							data-columnspec='["4:Temperatur_Sensor_6","4:Vorlauf_Soll_Heizkreis_Sensor_11"]'
 							data-get="Temperatur_Sensor_6" data-style='["ftui l6dot","ftui l4fill"]'
+							data-uaxis='["primary","secondary"]'
 							data-ptype='["lines","lines"]' data-legend='["Vorlauf Ist","Vorlauf Soll"]'
 							data-showlegend="true" data-legend_horiz="true" data-yunit="°C" data-ytext="Vorlauf Ist"
 							data-yunit_sec="°C" data-ytext_sec="Vorlauf Soll" data-yticks_format="##."
