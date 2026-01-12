@@ -1,0 +1,277 @@
+<html>
+<body>
+	<div class="page" id="main">
+		<div id="panel">
+<div class="gridster">
+    <ul>
+	    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+		    <header>System</header>
+		    <div class="sheet green border-red small" align="left">
+			    <div class="row">
+				    <div class="cell">
+					    fhem Start:
+				    </div>
+				    <div class="cell">
+					    <span data-device='["sysmon"]' data-type="label" data-get="fhemstarttime_text"
+						    data-substitution="toDate().ddmmyyyy()"></span>
+				    </div>
+			    </div>
+			    <div class="row">
+				    <div class="cell">
+					    RPi Uptime:
+				    </div>
+				    <div class="cell">
+					    <span data-device='["sysmon"]' data-type="label" data-get="starttime_text"
+						    data-substitution="toDate().ddmmyyyy()"></span>
+				    </div>
+			    </div>
+			    <div class="row">
+				    <div class="cell">
+					    CPU Freq.:
+				    </div>
+				    <div class="cell">
+					    <span data-device='["sysmon"]' data-type="label" data-get="cpu_freq"></span> 
+					    (<span data-device='["sysmon"]' data-type="label" data-get="cpu_core_count"></span>)
+				    </div>
+			    </div>
+			    <div class="row">
+				    <div class="cell">
+					    RPi FS / :
+				    </div>
+				    <div class="cell">
+					    <span data-device='["sysmon"]' data-type="label" data-get="fs_root"
+				 data-substitution="toString().substr(31,4)">
+				    </div>
+			    </div>
+			    <div class="row">
+				    <div class="cell">
+					    RPi CPU °C:
+				    </div>
+				    <div class="cell">
+					    <span data-device='["sysmon"]' data-type="label" data-get="cpu_temp">
+				    </div>
+			    </div>
+			    <div class="row">
+				    <div class="cell">
+					    RPi RAM:
+				    </div>
+				    <div class="cell">
+					    <span data-device='["sysmon"]' data-type="label" data-get="ram"
+				 data-substitution="toString().substr(34,8)">
+				    </div>
+			    </div>
+		    </div>
+	    </li>
+        <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+            <header>Aktuelle Uhrzeit</header>
+	    <div class="big" data-type="clock" data-format="D., j. F"></div>
+	    <span class="big blue" data-type="clock" data-format="H:i"></span><span class="big blue"> Uhr</span><br>
+                        KW: <span data-type="clock" data-format="Y - W"></span>
+			<div class="small">
+				(vbus/Cosmo:<br>
+				<span data-device='["Cosmo_Multi_Regler"]' data-type="label" data-get="Tag"></span>.
+			<span data-device='["Cosmo_Multi_Regler"]' data-type="label" data-get="Monat"></span>.
+			<span data-device='["Cosmo_Multi_Regler"]' data-type="label" data-get="Jahr"></span> - 
+			<span data-device='["Cosmo_Multi_Regler"]' data-type="label" data-get="System_Tageszeit"
+				data-substitution="toDate().hhmm()"></span>)
+                </div>
+        </li>
+        <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+            <header>Abfall</header>
+                        <div data-device="Abfall" data-type="symbol"
+                             data-get="next_text"
+                             data-get-on='["^Rest.*","^Gelbe.*","^Papier.*","^Bio.*","^Problem.*"]'
+                             data-colors='["#696969","#F4E946","#2D9E1C","#8B4513","#FF0000"]'
+			     data-icons='["fa-trash-o","fa-recycle","fa-copy","fa-apple","fa-trash"]'>
+			</div>
+                        <div class="nowrap small" data-device="Abfall" data-type="label"
+                             data-get="next_text"
+                             data-limits='["^Rest.*","^Gelbe.*","^Papier.*","^Bio.*","^Problem.*"]'
+                             data-colors='["#696969","#F4E946","#2D9E1C","#8B4513","#FF0000"]'>
+			</div>
+                             <div data-device="Abfall" data-type="label"
+                                  data-get="next_date">
+			     </div>
+        </li>
+        <li data-row="2" data-col="4" data-sizex="2" data-sizey="1">
+            <header>Stromverbrauch</header>
+	    <div class="sheet" align="left">
+		    <div class="row">
+			    <div class="cell">
+	    <span class="mint">Zählerstand: </span>
+			    </div>
+			    <div class="cell">
+	    <span data-type="label" class="mint" data-device='SMLesekopf' data-get="DWS7612_energy"></span>
+			    </div>
+		    </div>
+		    <div class="row">
+			    <div class="cell">
+				    <span class="green">Verbrauch heute:</span>
+			    </div>
+			    <div class="cell">
+	    <span data-type="label" class="green" data-device='Stromverbrauch' data-get="Tagesverbrauch"></span>
+			    </div>
+		    </div>
+		    <div class="row">
+			    <div class="cell">
+			    <span data-type="clock" class="blue" data-format="F"></span><span class="blue">: </span>
+			    </div>
+			    <div class="cell">
+	    <span data-type="label" class="blue" data-device='Stromverbrauch' data-get="Monatsverbrauch"></span>
+	    <span class="blue"> / </span> 
+	    <span data-type="label" class="blue" data-device='Stromverbrauch' data-get="Monatskosten"></span>
+			    </div>
+		    </div>
+		    <div class="row">
+			    <div class="cell">
+	    <span class="orange">Vormonat: </span>
+			    </div>
+			    <div class="cell">
+	    <span data-type="label" class="orange" data-device='Stromverbrauch' data-get="Vormonatsverbrauch"></span><span class="orange"> / </span> 
+	    <span data-type="label" class="orange" data-device='Stromverbrauch' data-get="Vormonatskosten"></span>
+			    </div>
+		    </div>
+		    <div class="row">
+			    <div class="cell">
+	    <span data-type="clock"class="yellow" data-format="Y"></span><span class="yellow"> bisher: </span>
+			    </div>
+			    <div class="cell">
+	    <span data-type="label" class="yellow" data-device='Stromverbrauch' data-get="Jahresverbrauch"></span><span class="yellow"> / </span> 
+	    <span data-type="label" class="yellow" data-device='Stromverbrauch' data-get="Jahreskosten"></span>
+			    </div>
+		    </div>
+		    <div class="row">
+			    <div class="cell">
+	    <span class="lightblue">Vorjahr: </span>
+			    </div>
+			    <div class="cell">
+	    <span data-type="label" class="lightblue" data-device='Stromverbrauch' data-get="Vorjahresverbrauch"></span><span class="lightblue"> / </span> 
+	    <span data-type="label" class="lightblue" data-device='Stromverbrauch' data-get="Vorjahreskosten"></span>
+			    </div>
+		    </div>
+	    </div>
+	</li>
+	    <li data-row="3" data-col="1" data-sizex="5" data-sizey="1">
+		<header>Stromverbrauch</header>
+				<div data-type="chart" data-height="95%"
+					data-device='["SMLesekopf"]'
+                         		data-logdevice='["FileLog_SMLesekopf"]'
+				        data-columnspec='["4:DWS7612_power"]'
+					data-style='["ftui l6fill"]'
+					data-ptype='["lines"]'
+			 data-crosshair="true"
+			 data-yunit="W" data-minvalue="auto"
+                         data-maxvalue="auto" data-xticks="auto" data-yticks="auto" data-minvalue_sec="auto"
+                         data-maxvalue_sec="auto" data-y_margin='["10"]' data-nofulldays="true"
+			 data-graphsshown="true" data-prefetch="true" data-cursorgroup="1"
+								      data-scrollgroup="1">
+				</div>
+	</li>
+        <li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
+            <header>Ist / Soll (HK 1)</header>
+                        <div class="readonly" data-type="thermostat" data-device="Cosmo_Multi_Regler"
+                             data-get="Vorlauf_Soll_Heizkreis_Sensor_11" data-temp="Temperatur_Sensor_6"
+                             data-min="0" data-max="80" data-mincolor="#4477ff"
+                             data-maxcolor="#ff0000"></div>
+        </li>
+        <li data-row="4" data-col="2" data-sizex="2" data-sizey="1">
+            <header>Aktuelle Temperatur</header>
+                    <div class="col-1-3">
+                        <div>Heizraum außen</div>
+                        <div data-type="label" data-device="Cosmo_Multi_Regler"
+                             data-get="Temperatur_Sensor_7"
+                             data-part="1"
+                             data-fix="1"
+                             class="bigger bold"
+                             data-limits='[5.0,18.0,27.0]'
+                             data-colors='["blue","green","red"]'
+                             data-unit="%B0C%0A"
+                             data-refresh="60"></div>
+                    </div>
+                    <div class="col-1-3">
+                        <div>Solarthermie</div>
+                        <div data-type="label" data-device="Cosmo_Multi_Regler"
+                             data-get="Temperatur_Sensor_1"
+                             data-part="1"
+                             data-fix="1"
+                             class="bigger bold"
+                             data-limits='[15.0,25.0,80.0]'
+                             data-colors='["blue","green","red"]'
+                             data-unit="%B0C%0A"
+                             data-refresh="60">
+                        </div>
+                    </div>
+                    <div class="col-1-3">
+                        <div>Wetterstation</div>
+                        <div data-type="label" data-device="Wetter"
+                             data-get="temperature"
+                             data-part="1"
+                             data-fix="1"
+                             class="bigger bold"
+                             data-limits='[5.0,18.0,25.0]'
+                             data-colors='["blue","green","red"]'
+                             data-unit="%B0C%0A"
+                             data-refresh="60">
+                        </div>
+        </li>
+        <li data-row="4" data-col="4" data-sizex="1" data-sizey="1">
+            <header>Aktueller Wind</header>
+                        <div data-type="wind_direction"
+                             data-device="Wetter"
+                             data-direction="windDir"
+                             data-speed="wind"
+                             data-calm="~"
+                             data-tickstep="22.5"
+                             class="small"></div>
+                        <div data-type="label"
+                             data-device="Wetter"
+                             data-get="wind"
+                             data-unit=" km/h"
+                             data-fix="0" class="inline bold"></div>
+                        <div class="small inline"> Richtung: </div>
+                        <div data-type="label"
+                             data-device="Wetter"
+                             data-get="windDir"
+                             data-unit=" °" class="inline bold"></div>
+        </li>
+        <li data-row="4" data-col="5" data-sizex="1" data-sizey="1">
+            <header>Wetter heute</header>
+                        <div data-type="weather" data-device="Wetter" data-get="fc0_weatherDayIcon"
+                             data-imageset="kleinklima" class="tiny"></div>
+                        <div data-type="label" data-device="Wetter" data-get="fc0_tempMin" data-limits='[5.0,18.0,25.0]'
+                             data-colors='["blue","green","red"]' data-unit="%B0C%0A"
+                             class="inline bold"></div>
+                        bis
+                        <div data-type="label" data-device="Wetter" data-get="fc0_tempMax" data-limits='[5.0,18.0,25.0]'
+                             data-colors='["blue","green","red"]' data-unit="%B0C%0A"
+                             class="inline bold"></div>
+	</li>
+        <li data-row="5" data-col="1" data-sizex="5" data-sizey="1">
+            <header>Pufferspeicher</header>
+                    <div data-type="chart" data-height="95%"
+                         data-margin="5"
+			 data-device='["Cosmo_Multi_Regler"]'
+                         data-logdevice='["FileLog_Cosmo_Multi_Regler"]'
+                         data-columnspec='["4:Temperatur_Sensor_2","4:Temperatur_Sensor_4"]'
+                         data-style='["ftui l6dot","ftui l4fill"]'
+                         data-ptype='["lines","lines"]' data-uaxis='["primary","secondary"]'
+                         data-legend='["Solar (unten)","Pellet (Mitte)"]'
+			 data-legendpos='["right","top"]'
+                         data-showlegend="true"
+			 data-legend_horiz="true"
+			 data-crosshair="true"
+			 data-yunit="°C" data-ytext="Puffer unten" data-minvalue="auto"
+			 data-yunit_sec="°C" data-ytext_sec="Puffer Mitte" data-minvalue="auto"
+			 data-yticks_format="##."
+			 data-yticks_format_sec="##."
+                         data-maxvalue="auto" data-xticks="auto" data-yticks="auto" data-minvalue_sec="auto"
+                         data-maxvalue_sec="auto" data-y_margin='["10"]' data-nofulldays="true"
+                         data-graphsshown="true" data-prefetch="true" data-cursorgroup="2"
+								      data-scrollgroup="2">
+		    </div>
+        </li>
+    </ul>
+		    </div>
+</div>
+</body>
+</html>

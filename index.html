@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+     /* FHEM tablet ui */
+     /*
+     * Just another dashboard for FHEM
+     *
+     * Version: 1.4.4
+     * Requires: jQuery v1.7+, font-awesome, jquery.gridster, jquery.toast
+     * URL: https://github.com/knowthelist/fhem-tablet-ui
+     *
+     * Copyright (c) 2015 Mario Stephan <mstephan@shared-files.de>
+     * Under MIT License (http://www.opensource.org/licenses/mit-license.php)
+     *
+     * - create a new folder named 'tablet' in /<fhem-path>/www
+     * - copy all files incl. sub folders into /<fhem-path>/www/tablet
+     * - add 'define TABLETUI HTTPSRV ftui ./www/tablet/ Tablet-UI in fhem.cfg
+     * - Tadaaa! A new fhem ui in http://<fhem-url>:8083/fhem/tablet/
+     */
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="gridster_base_width" content="190">
+    <meta name="gridster_base_height" content="155">
+    <meta name="widget_margin" content="2">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="longpoll" content="1"> <!-- 1=longpoll;0=shortpoll every 30sec -->
+    <meta name="debug" content="1"> <!-- 1=output to console;0=not output -->
+    <meta http-equiv="Cache-Control" content="no-store" />
+
+    <link rel="stylesheet" href="/fhem/tablet/lib/jquery.gridster.min.css" />
+    <link rel="stylesheet" href="/fhem/tablet/css/fhem-tablet-ui.css" />
+    <link rel="stylesheet" href="/fhem/tablet/lib/font-awesome.min.css" />
+    <link rel="stylesheet" href="/fhem/tablet/lib/jquery.toast.min.css" />
+
+    <!-- define your personal style here, it wont be overwritten  -->
+    <!-- link rel="stylesheet" href="/fhem/tablet/css/fhem-green-ui.css" / -->
+    <link rel="stylesheet" href="/fhem/tablet/css/fhem-tablet-ui-user.css" />
+
+    <script src="/fhem/pgm2/jquery.min.js" defer></script>
+    <script src="/fhem/tablet/lib/jquery.toast.min.js" defer></script>
+    <script src="/fhem/tablet/lib/jquery.gridster.min.js" defer></script>
+    <script src="/fhem/tablet/js/fhem-tablet-ui.min.js" defer></script>
+
+    <!-- WebViewControl (inactive)
+    <script defer>var wvcDevices = {'12345': 'Tablet'}; var wvcUserCssFile="webviewcontrol.css"</script>
+    <script src="/fhem/pgm2/cordova-2.3.0.js" defer></script>
+    <script src="/fhem/pgm2/webviewcontrol.js" defer></script>
+    --><!-- End for WebViewControl -->
+
+    <title>FHEM-Tablet-UI</title>
+</head>
+<body>
+	<div id="menu" align="left">
+		<div class="default small yellow inline"
+		     data-type="link"
+		     data-load="#main"
+		     data-url="#main.html"
+		     data-active-color="yellow"
+		     data-active-pattern=".*#main.html">
+			<div class="inline" data-type="symbol" data-icon="fa-anchor" data-color="yellow"></div>{ Start } </div>
+		<div class="small yellow inline"
+		     data-type="link"
+		     data-load="#switches"
+		     data-url="#switches.html"
+		     data-active-color="yellow"
+		     data-active-pattern=".*#switches.html">
+			<div class="inline" data-type="symbol" data-icon="fa-power-off" data-color="yellow"></div>{ Schalter } </div>
+		<div class="small yellow inline"
+		     data-type="link"
+		     data-load="#weather"
+		     data-url="#weather.html"
+		     data-active-color="yellow"
+		     data-active-pattern=".*#weather.html">
+			<div class="inline" data-type="symbol" data-icon="fa-picture-o" data-color="yellow"></div>{ Wetter } </div>
+		<div class="small yellow inline"
+		     data-type="link"
+		     data-load="#heating"
+		     data-url="#heating.html"
+		     data-active-color="yellow"
+		     data-active-pattern=".*#heating.html">
+			<div class="inline" data-type="symbol" data-icon="fa-bath" data-color="yellow"></div>{ Heizung } </div>
+	</div>
+	<div id="panel">
+		<div class="page" id="main"></div>
+		<div class="page" id="switches"></div>
+		<div class="page" id="weather"></div>
+		<div class="page" id="heating"></div>
+	</div>
+</body>
+</html>

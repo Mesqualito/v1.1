@@ -1,0 +1,207 @@
+<html>
+<body>
+	<div class="page" id="heating">
+		<div id="panel">
+<div class="gridster">
+    <ul>
+        <li data-row="1" data-col="1" data-sizex="5" data-sizey="5">
+            <header>Heizung & Solarkollektor</header>
+            <div class="sheet">
+                <div class="row">
+                    <div class="cell" data-type="chart" data-height="95%"
+                         data-device='["Cosmo_Multi_Regler"]'
+                         data-logdevice='["FileLog_Cosmo_Multi_Regler"]'
+                         data-columnspec='["4:Temperatur_Sensor_1"]'
+                         data-get="Temperatur_Sensor_1"
+			 data-style='["ftui l5fill"]'
+                         data-ptype='["lines"]'
+                         data-legend='["Solarkollektorfeld"]'
+                         data-showlegend="true"
+			 data-legend_horiz="true"
+			 data-yunit="°C" data-ytext="Solarkollektor" data-minvalue="auto"
+                         data-yticks_format="###."
+			 data-crosshair="true"
+			 data-maxvalue="auto"
+			 data-nofulldays="true"
+                         data-graphsshown="true" data-prefetch="true" data-scrollgroup="1"
+		    </div>
+                </div>
+                <div class="row">
+                    <div class="cell" data-type="chart" data-height="95%"
+                         data-device='["Cosmo_Multi_Regler"]'
+                         data-logdevice='["FileLog_Cosmo_Multi_Regler"]'
+                         data-columnspec='["4:Temperatur_Sensor_6","4:Vorlauf_Soll_Heizkreis_Sensor_11"]'
+                         data-get="Temperatur_Sensor_6"
+                         data-style='["ftui l6dot","ftui l4fill"]'
+                         data-ptype='["lines","lines"]'
+                         data-legend='["Vorlauf nach Mischer","Vorlauf Soll"]'
+                         data-showlegend="true" 
+			 data-legend_horiz="true"
+			 data-yunit="°C" data-ytext="Vorlauf Ist" data-minvalue="auto"
+			 data-yunit_sec="°C" data-ytext_sec="Vorlauf Soll" data-minvalue="auto"
+                         data-yticks_format="##."
+			 data-yticks_format_sec="##."
+			 data-crosshair="true"
+                         data-maxvalue="auto"
+			 data-nofulldays="true"
+                         data-graphsshown="true" data-prefetch="true" data-scrollgroup="1"
+		    </div>
+		    </div>
+                <div class="row">
+                    <div class="cell" data-type="chart" data-height="95%"
+                         data-device='["Cosmo_Multi_Regler"]'
+                         data-logdevice='["FileLog_Cosmo_Multi_Regler"]'
+                         data-columnspec='["4:Temperatur_Sensor_2","4:Temperatur_Sensor_4"]'
+                         data-get="Temperatur_Sensor_2"
+                         data-style='["ftui l6dot","ftui l4fill"]'
+                         data-ptype='["lines","lines"]'
+                         data-legend='["Puffer unten (Solar)","Puffer Mitte (Pellets)"]'
+                         data-showlegend="true" 
+			 data-legend_horiz="true"
+			 data-yunit="°C" data-ytext="Puffer unten" data-minvalue="auto"
+                         data-yunit_sec="°C" data-ytext_sec="Puffer Mitte"
+			 data-yticks_format="##."
+			 data-yticks_format_sec="##."
+			 data-crosshair="true"
+                         data-maxvalue="auto"
+			 data-nofulldays="true"
+                         data-graphsshown="true" data-prefetch="true" data-scrollgroup="1"
+                         </div>
+                </div>
+                <div class="row">
+                    <div class="cell" data-type="chart" data-height="95%"
+                         data-device='["Cosmo_Multi_Regler"]'
+                         data-logdevice='["FileLog_Cosmo_Multi_Regler"]'
+                         data-columnspec='["4:Temperatur_Sensor_7","4:Temperatur_Sensor_8"]'
+                         data-get="Temperatur_Sensor_7"
+                         data-style='["ftui l4fill","ftui l6dot"]'
+                         data-ptype='["lines","lines"]'
+                         data-legend='["Außentemp."]'
+                         data-showlegend="true" 
+			 data-legend_horiz="true"
+			 data-yunit="°C" data-ytext="Außentemp." data-minvalue="auto"
+			 data-yunit_sec="°C" data-ytext="Th 8" data-minvalue="auto"
+                         data-yticks_format="##."
+                         data-yticks_format_sec="##."
+			 data-crosshair="true"
+                         data-maxvalue="auto"
+			 data-nofulldays="true"
+                         data-graphsshown="true" data-prefetch="true" data-scrollgroup="1"
+                         </div>
+                </div>
+                <div class="row">
+                    <div class="col-1-5">
+                        Status HK:
+                        <div data-type="label"
+                             data-device="Cosmo_Multi_Regler"
+                             data-get="Status_Heizkreis"
+                             data-part="1"
+                             data-fix="0"
+                             class="big bold"
+                             data-color="blue"
+                             data-refresh="60"></div>
+                    </div>
+                    <div class="col-1-5">
+			    <div data-type="rotor" class="fade">
+				    <ul>
+					    <li>
+                        Regler Solar:
+                        <div data-type="label"
+                             data-device="Cosmo_Multi_Regler"
+                             data-get="Drehzahl_Relais_1"
+                             data-part="1"
+                             data-fix="0"
+                             class="big bold"
+                             data-limits='[15,30,80]'
+                             data-colors='["blue","green","red"]'
+                             data-unit=" &#37;"
+                             data-refresh="60"></div>
+					    </li>
+                    <li>
+                        Regler R4:
+                        <div data-type="label"
+                             data-device="Cosmo_Multi_Regler"
+                             data-get="Drehzahl_Relais_4"
+                             data-part="1"
+                             data-fix="0"
+                             class="big bold"
+                             data-limits='[15,30,80]'
+                             data-colors='["blue","green","red"]'
+                             data-unit=" &#37;"
+                             data-refresh="60"></div>
+		    </li>
+		    <li>
+                        Regler R5:
+                        <div data-type="label"
+                             data-device="Cosmo_Multi_Regler"
+                             data-get="Drehzahl_Relais_5"
+                             data-part="1"
+                             data-fix="0"
+                             class="big bold"
+                             data-limits='[15,30,80]'
+                             data-colors='["blue","green","red"]'
+                             data-unit=" &#37;"
+                             data-refresh="60"></div>
+		    </li>
+		    <li>
+                        Regler R6:
+                        <div data-type="label"
+                             data-device="Cosmo_Multi_Regler"
+                             data-get="Drehzahl_Relais_6"
+                             data-part="1"
+                             data-fix="0"
+                             class="big bold"
+                             data-limits='[15,30,80]'
+                             data-colors='["blue","green","red"]'
+                             data-unit=" &#37;"
+                             data-refresh="60"></div>
+		    </li>
+	    </ul>
+
+    </div>
+    </div>
+		<div class="col-1-5">
+ <div>Temp. Thermostat Th 8</div>
+                        <div data-type="label" data-device="Cosmo_Multi_Regler"
+                             data-get="Temperatur_Sensor_8"
+                             data-part="1"
+                             data-fix="1"
+                             class="bigger bold"
+                             data-limits='[5.0,18.0,27.0]'
+                             data-colors='["blue","green","red"]'
+                             data-unit="%B0C%0A"
+                             data-refresh="60"></div>
+                    </div>
+		<div class="col-1-5">
+ <div>Heizraum außen</div>
+                        <div data-type="label" data-device="Cosmo_Multi_Regler"
+                             data-get="Temperatur_Sensor_7"
+                             data-part="1"
+                             data-fix="1"
+                             class="bigger bold"
+                             data-limits='[5.0,18.0,27.0]'
+                             data-colors='["blue","green","red"]'
+                             data-unit="%B0C%0A"
+                             data-refresh="60"></div>
+                    </div>
+                    <div class="col-1-5">
+                        <div>Solarthermie</div>
+                        <div data-type="label" data-device="Cosmo_Multi_Regler"
+                             data-get="Temperatur_Sensor_1"
+                             data-part="1"
+                             data-fix="1"
+                             class="bigger bold"
+                             data-limits='[15.0,25.0,80.0]'
+                             data-colors='["blue","green","red"]'
+                             data-unit="%B0C%0A"
+                             data-refresh="60">
+                        </div>
+                    </div>
+            </div>
+        </li>
+    </ul>
+</div>
+		</div>
+	</div>
+</body>
+</html>
